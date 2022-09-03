@@ -6,7 +6,7 @@
              class="brand-image img-circle elevation-3"
              style="opacity: .8;-ms-transform: rotate(270deg); /* IE 9 */
   transform: rotate(270deg);">
-        <span class="brand-text font-weight-light">Pariwartan Ecommerce</span>
+        <span class="brand-text font-weight-light">LaraBoard</span>
     </a>
 
     <!-- Sidebar -->
@@ -18,11 +18,14 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ url('admin') }}"
-                       class="nav-link {{ Request::url() == url('admin') ? 'active' : '' }}">
+                    <a href="{{ url('home') }}"
+                       class="nav-link {{ Request::url() == url('home') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-home"></i>
                         Dashboard
                     </a>
+                </li>
+                <li class="nav-header">
+                    Site Manager <span class="right badge badge-danger float-right">&#128504;</span>
                 </li>
                 <li class="nav-item">
                     <a href="{{ url('getHomeSlider') }}"
@@ -30,45 +33,6 @@
                         <i class="nav-icon fas fa-photo-video"></i>
                         Home Sliders
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('getGallery') }}"
-                       class="nav-link {{ request()->is('getGallery*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-image"></i>
-                        Gallery
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('getProduct') }}"
-                       class="nav-link {{ request()->is('getProduct*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-shopping-bag"></i>
-                        Products
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href=""
-                       class="nav-link">
-                        <i class="nav-icon fas fa-shopping-basket"></i>
-                        Wholesale
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('getOrder') }}"
-                       class="nav-link {{ request()->is('getOrder*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-shopping-cart"></i>
-                        Orders
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('getReport') }}"
-                       class="nav-link {{ request()->is('getReport*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-charging-station"></i>
-                        Reports
-                    </a>
-                </li>
-
-                <li class="nav-header">
-                    Site Manager <span class="right badge badge-danger float-right">&#128504;</span>
                 </li>
                 <li class="nav-item">
                     <a href="{{ url('getAbout') }}"

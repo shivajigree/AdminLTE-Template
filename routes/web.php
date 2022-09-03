@@ -22,33 +22,34 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\FrontEnd\HomeController::class, 'index']);
 
-Route::resources([
-    'getHomeSlider' => HomeSliderController::class,
-    'getAbout' => AboutController::class,
-]);
+Route::group(['middleware' => 'auth'], static function () {
 
-Route::get('system-info', [ExtraController::class, 'system_info'])->name('system-info');
-Route::get('optimize', [ExtraController::class, 'optimize'])->name('optimize');
-Route::get('optimize/applicationCache', [ExtraController::class, 'optimizeApplicationCache'])->name('applicationCache');
-Route::get('optimize/routeCache', [ExtraController::class, 'optimizeRouteCache'])->name('routeCache');
-Route::get('optimize/configCache', [ExtraController::class, 'optimizeConfigCache'])->name('configCache');
-Route::get('optimize/viewCache', [ExtraController::class, 'optimizeViewCache'])->name('viewCache');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::resource('getSiteIdentity', SiteIdentityController::class)->only([
-    'index', 'store', 'update'
-]);
-Route::resource('getGeneralSetting', GeneralSettingController::class)->only([
-    'index', 'store', 'update'
-]);
-Route::resource('getSEO', SEOController::class)->only([
-    'index', 'store', 'update'
-]);
+    Route::resources([
+        'getHomeSlider' => HomeSliderController::class,
+        'getAbout' => AboutController::class,
+    ]);
+
+    Route::get('system-info', [ExtraController::class, 'system_info'])->name('system-info');
+    Route::get('optimize', [ExtraController::class, 'optimize'])->name('optimize');
+    Route::get('optimize/applicationCache', [ExtraController::class, 'optimizeApplicationCache'])->name('applicationCache');
+    Route::get('optimize/routeCache', [ExtraController::class, 'optimizeRouteCache'])->name('routeCache');
+    Route::get('optimize/configCache', [ExtraController::class, 'optimizeConfigCache'])->name('configCache');
+    Route::get('optimize/viewCache', [ExtraController::class, 'optimizeViewCache'])->name('viewCache');
+
+    Route::resource('getSiteIdentity', SiteIdentityController::class)->only([
+        'index', 'store', 'update'
+    ]);
+    Route::resource('getGeneralSetting', GeneralSettingController::class)->only([
+        'index', 'store', 'update'
+    ]);
+    Route::resource('getSEO', SEOController::class)->only([
+        'index', 'store', 'update'
+    ]);
+});
 
 Auth::routes([
     'register' => true,
     'reset' => true
 ]); // Registration Routes...);
-
-Route::get('/admin', [HomeController::class, 'index'])->name('home');
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
