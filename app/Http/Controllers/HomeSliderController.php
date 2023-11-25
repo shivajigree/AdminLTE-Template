@@ -16,27 +16,6 @@ use Intervention\Image\Facades\Image;
 class HomeSliderController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return Application|Factory|View
-     */
-    public function index()
-    {
-        $sliders = HomeSlider::all();
-        return view('admin.homeSlider.homeSlider', compact('sliders'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return  Application|Factory|View
-     */
-    public function create()
-    {
-        return view('admin.homeSlider.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param HomeSliderRequest $request
