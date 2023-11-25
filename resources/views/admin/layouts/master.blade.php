@@ -8,9 +8,9 @@
 
     @include('admin.layouts.nav')
 
-    @include('admin.layouts.sidebar')
+    <livewire:sidebar />
 
-    @yield('contents')
+    {{ $slot }}
 
 {{--    <!-- Control Sidebar -->--}}
 {{--    <aside class="control-sidebar control-sidebar-dark">--}}

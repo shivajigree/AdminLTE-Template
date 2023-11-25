@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ExtraController;
 use App\Http\Controllers\GeneralSettingController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeSliderController;
 use App\Http\Controllers\SEOController;
 use App\Http\Controllers\SiteIdentityController;
+use App\Livewire\About\AboutIndex;
+use App\Livewire\HomeIndex;
+use App\Livewire\HomeSlider\HomeSliderCreate;
+use App\Livewire\HomeSlider\HomeSliderIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,12 +26,12 @@ Route::get('/', [App\Http\Controllers\FrontEnd\HomeController::class, 'index']);
 
 Route::group(['middleware' => 'auth'], static function () {
 
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', HomeIndex::class);
 
-    Route::resources([
-        'getHomeSlider' => HomeSliderController::class,
-        'getAbout' => AboutController::class,
-    ]);
+    Route::get('/getAbout', AboutIndex::class);
+
+    Route::get('/getHomeSlider', HomeSliderIndex::class)->name('getHomeSlider.index');
+    Route::get('/getHomeSlider/create', HomeSliderCreate::class)->name('getHomeSlider.create');
 
     Route::get('system-info', [ExtraController::class, 'system_info'])->name('system-info');
     Route::get('optimize', [ExtraController::class, 'optimize'])->name('optimize');

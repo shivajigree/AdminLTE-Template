@@ -18,7 +18,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ url('home') }}"
+                    <a href="/home" wire:navigate
                        class="nav-link {{ Request::url() == url('home') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-home"></i>
                         Dashboard
@@ -28,14 +28,14 @@
                     Site Manager <span class="right badge badge-danger float-right">&#128504;</span>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('getHomeSlider') }}"
+                    <a href="/getHomeSlider" wire:navigate
                        class="nav-link {{ (request()->segment(1) == 'getHomeSlider') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-photo-video"></i>
                         Home Sliders
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('getAbout') }}"
+                    <a href="/getAbout" wire:navigate
                        class="nav-link {{ request()->is('getAbout*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-cog"></i>
                         About Us

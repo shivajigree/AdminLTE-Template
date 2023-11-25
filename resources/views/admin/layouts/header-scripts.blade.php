@@ -3,8 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title> @yield('title') | Admin Panel </title>
-
+    <title> {{ $title ?? 'Home' }} | Admin Panel </title>
+    <link rel="icon" type="image/x-icon" href="https://www.w3schools.com/favicon.ico">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('bower_components/admin-lte/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
@@ -16,5 +16,4 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    @yield('styles')
 </head>
